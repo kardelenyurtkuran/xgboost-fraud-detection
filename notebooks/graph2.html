@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CP Model Veri Seti Test Sonuçları</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <canvas id="chart1" width="400" height="200"></canvas>
+    <script>
+        const ctx = document.getElementById('chart1').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Küçük (n=3)', 'Orta (n=10)', 'Büyük (n=20)'],
+                datasets: [
+                    {
+                        label: 'Çözüm Süresi (sn)',
+                        data: [0.05, 0.15, 0.45],
+                        backgroundColor: '#36A2EB',
+                        borderColor: '#36A2EB',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Kâr (Birim)',
+                        data: [24, 138, 276],
+                        backgroundColor: '#FFCE56',
+                        borderColor: '#FFCE56',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Değer' }
+                    },
+                    x: {
+                        title: { display: true, text: 'Veri Seti' }
+                    }
+                },
+                plugins: {
+                    legend: { display: true, position: 'top' },
+                    title: { display: true, text: 'CP Modeli: Veri Setlerine Göre Çözüm Süresi ve Kâr' }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

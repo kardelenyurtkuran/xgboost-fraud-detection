@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Performans Artırma Kısıtları Test Sonuçları</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <canvas id="chart2" width="400" height="200"></canvas>
+    <script>
+        const ctx = document.getElementById('chart2').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Standart CP', 'Simetri Kırma', 'Domain Küçültme', 'Mutual Exclusion'],
+                datasets: [
+                    {
+                        label: 'Çözüm Süresi (sn)',
+                        data: [0.11, 0.10, 0.10, 0.11],
+                        backgroundColor: '#4BC0C0',
+                        borderColor: '#4BC0C0',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Çözüm Süresi (saniye)' }
+                    },
+                    x: {
+                        title: { display: true, text: 'Kısıt Türü' }
+                    }
+                },
+                plugins: {
+                    legend: { display: true, position: 'top' },
+                    title: { display: true, text: 'Performans Artırma Kısıtları: Çözüm Süreleri (n=10)' }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

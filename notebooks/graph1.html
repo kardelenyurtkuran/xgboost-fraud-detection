@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CP ve MIP Modellerinin Çözüm Süreleri</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <canvas id="chart0" width="400" height="200"></canvas>
+    <script>
+        const ctx = document.getElementById('chart0').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Small (n=3)', 'Medium (n=10)', 'Large (n=20)'],
+                datasets: [
+                    {
+                        label: 'MIP Süre (sn)',
+                        data: [0.17, 0.08, 0.10],
+                        backgroundColor: '#FF6384',
+                        borderColor: '#FF6384',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'CP Süre (sn)',
+                        data: [0.09, 0.11, 0.54],
+                        backgroundColor: '#36A2EB',
+                        borderColor: '#36A2EB',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'CP + Symmetry Süre (sn)',
+                        data: [null, 0.10, null],
+                        backgroundColor: '#4BC0C0',
+                        borderColor: '#4BC0C0',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Çözüm Süresi (saniye)' }
+                    },
+                    x: {
+                        title: { display: true, text: 'Veri Seti' }
+                    }
+                },
+                plugins: {
+                    legend: { display: true, position: 'top' },
+                    title: { display: true, text: 'CP ve MIP Modellerinin Çözüm Süreleri' }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Arama Yöntemleri Test Sonuçları</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <canvas id="chart3" width="400" height="200"></canvas>
+    <script>
+        const ctx = document.getElementById('chart3').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['DFS', 'Restart-Based', 'Multi-Point', 'Neighborhood'],
+                datasets: [
+                    {
+                        label: 'Çözüm Süresi (sn)',
+                        data: [0.23, 0.12, 0.29, 0.35],
+                        backgroundColor: '#FF6384',
+                        borderColor: '#FF6384',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Çözüm Süresi (saniye)' }
+                    },
+                    x: {
+                        title: { display: true, text: 'Arama Yöntemi' }
+                    }
+                },
+                plugins: {
+                    legend: { display: true, position: 'top' },
+                    title: { display: true, text: 'Arama Yöntemleri: Çözüm Süreleri (n=10)' }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
